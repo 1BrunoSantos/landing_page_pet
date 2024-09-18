@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --cor-fundo: #205375;
+    --cor-destaque: #efefef;
+    --cor-texto-1: #f66b0e;
+    --cor-texto-2: #112b3c;
+}
+
+/* Reset */
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--cor-fundo);
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--cor-texto-1);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Header */
+header {
+    width: 100%;
+    padding: 25px 2%;
+}
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo {
+    font-size: 25px;
+    color: var(--cor-texto-1);
+}
+
+/* Menu */
+.menu {
+    display: flex;    
+}
+
+.menu li {
+    margin: 0 50px;
+}
+
+.menu li a:hover {
+    color: var(--cor-destaque);
+}
+
+/* Botão do menu de hambúrguer */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+    color: var(--cor-texto-1);
+}
+
+/* Estilos para o menu responsivo */
+@media (max-width: 910px) {
+    .menu {
+        background-color: transparent;
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Ajuste conforme necessário */
+        left: 0;
+        z-index: 1; /* Garante que o menu esteja acima de outros elementos */
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu li {
+        margin: 10px 0;
+        text-align: center;
+    }
+}
