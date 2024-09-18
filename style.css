@@ -7,92 +7,107 @@
     --cor-texto-2: #112b3c;
 }
 
-/* Reset */
 * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    color: var(--cor-texto-1);
 }
 
 body {
-    background-color: var(--cor-fundo);
+	display: flex;
+	flex-wrap: wrap;          
+	flex: 1 1 100vw;
+	margin: 3px;
 }
 
-ul {
-    list-style-type: none;
+header, nav, main, section, footer {
+	background: var(--cor-fundo);
+	display: flex;
+	margin: 3px;
+}
+
+header {
+	flex: 1 1 100vw;
+}
+
+header #logo {
+	display: flex;
+	flex: 0 1 200px;
+	background: var(--cor-fundo);
+	justify-content: center;
+	align-items: center;
+}
+
+#openMenu, #closeMenu {
+	border: none;
+	background: none;
+	font-size: 30px;
+	font-weight: bold;
+	padding: 0px 5px 0px 5px;
+	cursor: pointer;
+	display: none;
+}
+
+nav {
+	justify-content: flex-end;
+	align-items: center;
+	flex: 1 1 200px;
+}
+
+nav a {
+	margin: 0 3%;
+	font-size: 20px;
+}
+
+main {
+	flex: 20 1 500px;
+}
+
+aside {
+	flex: 1 1 200px;
+}
+
+footer {
+	flex: 1 1 100vw;
 }
 
 a {
-    text-decoration: none;
-    color: var(--cor-texto-1);
-    font-size: 20px;
-    font-weight: 600;
+	text-decoration: none;
+	color: inherit;
 }
 
-/* Header */
-header {
-    width: 100%;
-    padding: 25px 2%;
-}
+@media only screen and (max-width: 717px) {
+	#openMenu, #closeMenu {
+		display: block;
+	}
 
-.cabecalho {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+	#openMenu {
+		margin-left: auto;
+	}
 
-#logo {
-    font-size: 25px;
-    color: var(--cor-texto-1);
-}
+	#closeMenu {
+		position: fixed;
+		right: 15px;
+		top: 15px;
+	}
 
-/* Menu */
-.menu {
-    display: flex;    
-}
+	nav {
+		position: fixed;
+		width: 100vw;
+		height: 100vh;
+		background: rgba(255, 255, 255, 0.8);
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin: 0;
+		display: none;
+		opacity: 0;
+		transition: 0.3s;
+	}
 
-.menu li {
-    margin: 0 50px;
-}
-
-.menu li a:hover {
-    color: var(--cor-destaque);
-}
-
-/* Botão do menu de hambúrguer */
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 25px;
-    cursor: pointer;
-    color: var(--cor-texto-1);
-}
-
-/* Estilos para o menu responsivo */
-@media (max-width: 910px) {
-    .menu {
-        background-color: transparent;
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        position: absolute;
-        top: 60px; /* Ajuste conforme necessário */
-        left: 0;
-        z-index: 1; /* Garante que o menu esteja acima de outros elementos */
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .menu.active {
-        display: flex;
-    }
-
-    .menu li {
-        margin: 10px 0;
-        text-align: center;
-    }
+	nav a {
+		margin: 3%;
+	}
 }
